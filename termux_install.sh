@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-# Abhi isme aur kaam hai install mat karna
-
-dcc_dir=$PREFIX/share/dex2c
+dcc_dir=$HOME/dex2c
 dcc_bin=$PREFIX/bin/dcc
 dcc_src=https://github.com/Anon4You/dex2c-termux.git
 
@@ -19,8 +17,8 @@ apt install -y android-sdk \
   zlib \
   libjpeg-turbo \
   openssl \
-  apktool \
-  git
+  apkeditor \
+  apksigner
 
 # Remove existing dex2c directory if present
 if [ -d "$dcc_dir" ]; then
@@ -31,14 +29,9 @@ fi
 git clone --depth 1 $dcc_src $dcc_dir
 pip install -r $dcc_dir/requirements.txt
 
-# Create tools directory and symlink apktool.jar
-mkdir -p $dcc_dir/tools
-ln -sf $PREFIX/share/apktool/apktool.jar $dcc_dir/tools/apktool.jar
-
 # creating cfg
 cat > $dcc_dir/dcc.cfg << MUH_ME_LELO
 {
-    "apktool": "$dcc_dir/tools/apktool.jar",
     "ndk_dir": "$PREFIX/opt/android-sdk/ndk/29.0.14206865/",
     "signature": {
         "keystore_path": "$dcc_dir/keystore/debug.keystore",
@@ -49,10 +42,19 @@ cat > $dcc_dir/dcc.cfg << MUH_ME_LELO
         "v2_enabled": true,
         "v3_enabled": true
     },
-    "ollvm": {
-        "enable": true,
-        "flags": "-fvisibility=hidden -mllvm -fla -mllvm -split -mllvm -split_num=5 -mllvm -sub -mllvm -sub_loop=5 -mllvm -sobf -mllvm -bcf_loop=5 -mllvm -bcf_prob=100"
-    }
+    "output": "",
+    "obfuscate": false,
+    "dynamic_register": false,
+    "skip_synthetic": false,
+    "allow_init": false,
+    "force_keep_libs": false,
+    "no_build": false,
+    "filter": "filter.txt",
+    "custom_loader": "amimo.dcc.DccApplication",
+    "force_custom_loader": false,
+    "lib_name": "stub",
+    "source_dir": "",
+    "project_archive": "project-source.zip"
 }
 MUH_ME_LELO
 
