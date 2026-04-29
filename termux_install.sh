@@ -18,7 +18,8 @@ apt install -y android-sdk \
   libjpeg-turbo \
   openssl \
   apkeditor \
-  apksigner
+  apksigner \
+  git
 
 # Remove existing dex2c directory if present
 if [ -d "$dcc_dir" ]; then
