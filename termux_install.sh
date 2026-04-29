@@ -13,8 +13,7 @@ apt install -y android-sdk \
   python-pillow \
   python-cryptography \
   python-lxml \
-  ndk-sysroot \
-  zlib \
+  aapt \
   libjpeg-turbo \
   openssl \
   apkeditor \
