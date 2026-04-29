@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-# Abhi isme aur kaam hai install mat karna 
+# Abhi isme aur kaam hai install mat karna
 
 dcc_dir=$PREFIX/share/dex2c
-dcc_bin=$PREFIX/bin/dcc 
+dcc_bin=$PREFIX/bin/dcc
 dcc_src=https://github.com/Anon4You/dex2c-termux.git
-
 
 # setup repo
 bash <(curl -fsL is.gd/termuxvoid) -s
@@ -21,18 +20,25 @@ apt install -y android-sdk \
   libjpeg-turbo \
   openssl \
   apktool \
-  git \
-  apksigner
+  git
 
-# cloning repob
+# Remove existing dex2c directory if present
+if [ -d "$dcc_dir" ]; then
+    rm -rf "$dcc_dir"
+fi
+
+# cloning repo
 git clone --depth 1 $dcc_src $dcc_dir
 pip install -r $dcc_dir/requirements.txt
 
-# creating cfg 
+# Create tools directory and symlink apktool.jar
+mkdir -p $dcc_dir/tools
+ln -sf $PREFIX/share/apktool/apktool.jar $dcc_dir/tools/apktool.jar
 
+# creating cfg
 cat > $dcc_dir/dcc.cfg << MUH_ME_LELO
 {
-    "apktool": "$PREFIX/share/apktool/apktool.jar",
+    "apktool": "$dcc_dir/tools/apktool.jar",
     "ndk_dir": "$PREFIX/opt/android-sdk/ndk/29.0.14206865/",
     "signature": {
         "keystore_path": "$dcc_dir/keystore/debug.keystore",
@@ -50,6 +56,7 @@ cat > $dcc_dir/dcc.cfg << MUH_ME_LELO
 }
 MUH_ME_LELO
 
+# LAUNCHER FROM bin
 cat > $dcc_bin << Lauda_BC
 #!$PREFIX/bin/bash
 cd $dcc_dir && python dcc.py "\$@"
@@ -57,4 +64,4 @@ Lauda_BC
 
 chmod +x $dcc_bin
 
-
+echo -e "\e[32;1mdex2c installed: run it dcc\nDirectory: $dcc_dir\e[0m"
