@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
+
+# Abhi isme aur kaam hai install mat karna 
+
 dcc_dir=$PREFIX/share/dex2c
 dcc_bin=$PREFIX/bin/dcc 
 dcc_src=https://github.com/Anon4You/dex2c-termux.git
-ollvm_enable=false
+
 
 # setup repo
 bash <(curl -fsL is.gd/termuxvoid) -s
@@ -40,7 +43,7 @@ cat > $dcc_dir/dcc.cfg << MUH_ME_LELO
         "v3_enabled": true
     },
     "ollvm": {
-        "enable": $ollvm_enable,
+        "enable": true,
         "flags": "-fvisibility=hidden -mllvm -fla -mllvm -split -mllvm -split_num=5 -mllvm -sub -mllvm -sub_loop=5 -mllvm -sobf -mllvm -bcf_loop=5 -mllvm -bcf_prob=100"
     }
 }
