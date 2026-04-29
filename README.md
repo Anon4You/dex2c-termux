@@ -11,7 +11,7 @@
 
 ### Installation
 ```
-curl -fsL https://github.com/Anon4You/dex2c-termux/blob/master/termux_install.sh | bash
+curl -fsL https://github.com/Anon4You/dex2c-termux/raw/master/termux_install.sh | bash
 ```
 
 > [!NOTE] this is a pathed vesion of [**dex2c**](https://github.com/codehasan/dex2c)
