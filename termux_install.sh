@@ -21,7 +21,8 @@ apt install -y android-sdk \
   libjpeg-turbo \
   openssl \
   apktool \
-  git
+  git \
+  apksigner
 
 # cloning repob
 git clone --depth 1 $dcc_src $dcc_dir
