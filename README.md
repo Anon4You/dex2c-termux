@@ -16,7 +16,7 @@ cd dex2c-termux
 bash termux_install.sh
 ```
 
-[!NOTE] this is a pathed vesion of [**dex2c**](https://github.com/codehasan/dex2c)
+> [!NOTE] this is a pathed vesion of [**dex2c**](https://github.com/codehasan/dex2c)
 
 ### What's changed?
 * using APKEditor insted of apktool 
