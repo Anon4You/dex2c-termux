@@ -14,11 +14,12 @@
 curl -fsL https://github.com/Anon4You/dex2c-termux/raw/master/termux_install.sh | bash
 ```
 
-> [!NOTE] this is a pathed vesion of [**dex2c**](https://github.com/codehasan/dex2c)
+> [!NOTE]
+> this is a pathed version of [**Dex2C**](https://github.com/codehasan/dex2c)
 
 ### What's changed?
 * using APKEditor insted of apktool 
 * using apksigner provided by termux 
-* using [termuxvoid repo](https://termuxvoid.github.io/) to install dependencies
+* using [**termuxvoid**](https://termuxvoid.github.io/) to install dependencies
 
 
