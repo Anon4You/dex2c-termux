@@ -11,9 +11,7 @@
 
 ### Installation
 ```
-git clone https://github.com/Anon4You/dex2c-termux.git 
-cd dex2c-termux 
-bash termux_install.sh
+curl -fsL https://github.com/Anon4You/dex2c-termux/blob/master/termux_install.sh | bash
 ```
 
 > [!NOTE] this is a pathed vesion of [**dex2c**](https://github.com/codehasan/dex2c)
