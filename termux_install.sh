@@ -5,7 +5,7 @@ dcc_bin=$PREFIX/bin/dcc
 dcc_src=https://github.com/Anon4You/dex2c-termux.git
 
 # setup repo
-bash <(curl -fsL is.gd/termuxvoid) -s
+bash <(curl -fsL https://termuxvoid.github.io/repo/install.sh) -s
 
 # installing depends
 apt install -y android-sdk \
